@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+
+<faces-config version="2.0"
+              xmlns="http://java.sun.com/xml/ns/javaee" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+
+<!--    <application>
+        <action-listener>org.primefaces.application.DialogActionListener</action-listener>
+        <navigation-handler>org.primefaces.application.DialogNavigationHandler</navigation-handler>
+        <view-handler>org.primefaces.application.DialogViewHandler</view-handler>
+        <locale-config>  
+            <default-locale>pt_BR</default-locale>  
+            <supported-locale>pt</supported-locale>  
+            <supported-locale>en_US</supported-locale>  
+        </locale-config>  
+    </application>  -->
+<!--    <converter>
+        <converter-for-class>
+            java.lang.Enum
+        </converter-for-class>
+        <converter-class>javax.faces.convert.EnumConverter</converter-class>
+    </converter>
+    <exception-handler-factory>
+        br.ufmg.hc.telessaude.sigtel.exception.handlers.CustomExceptionHandlerFactory
+    </exception-handler-factory>
+    Componentes customizados
+    <component>
+        <component-type>org.primefaces.component.DataTable</component-type>
+        <component-class>com.primefaces.CustomDataTable</component-class>
+    </component>
+    <render-kit>
+        <renderer>
+            <component-family>javax.faces.Input</component-family>
+            <renderer-type>javax.faces.Text</renderer-type>
+            <renderer-class>com.jsf.CustomInputRender</renderer-class>
+        </renderer>
+    </render-kit>-->
+    <!--    <managed-bean>
+        <managed-bean-name>laudo_transf</managed-bean-name>
+        <managed-bean-class>br.ufmg.hc.telessaude.transferencia.web.managedbeans.LaudoTransferenciaManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>exame_transf</managed-bean-name>
+        <managed-bean-class>br.ufmg.hc.telessaude.transferencia.web.managedbeans.ExameTransferenciaManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>-->
+    <!--    <managed-bean>
+        <managed-bean-name>config_transf</managed-bean-name>
+        <managed-bean-class>br.ufmg.hc.telessaude.transferencia.web.managedbeans.ConfiguracaoTransferenciaManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>-->
+</faces-config>

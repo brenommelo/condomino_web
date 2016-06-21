@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--<property name="hibernate.connection.datasource">jdbc/TeleMobile</property>-->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+            <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/PRO_SIND</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <!--<property name="hibernate.connection.password">senha</property>-->
+        <!--<property name="hibernate.connection.password">segredo</property>-->
+        <property name="hibernate.connection.password">segredo</property>
+ 
+    
+    
+        <!-- Exibe comandos SQL na saida padrao. -->  
+        <!--<property name="hibernate.show_sql">true</property>-->  
+        <property name="hibernate.show_sql">false</property>  
+        <property name="hibernate.use_sql_comments">false</property>  
+        <property name="hibernate.hibernate.format_sql">true</property>  
+        <!--<property name="hibernate.current_session_context_class">jta</property>--> 
+        <property name="hibernate.current_session_context_class">thread</property> 
+        <!--<property name="hibernate.hbm2ddl.auto">none</property>-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+    
+
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.Condominio"/>
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.CondominioTaxa"/>
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.PrevisaoFinanceira"/>
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.TipoUnidade"/>
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.Despesa"/>
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.Endereco"/>
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.Estado"/>
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.Municipio"/>
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.Notificacao"/>
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.Perfil"/>
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.Pessoa"/>
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.PessoaUnidade"/>
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.Receita"/>
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.SeparacaoContabil"/>
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.Taxa"/>
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.TipoCondominio"/>
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.TipoNotificacao"/>
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.Unidade"/>
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.UnidadeTaxa"/>
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.Usuario"/>
+        <mapping class="br.com.una.pa.condominio.mobile.entidades.Configuracao"/>
+    </session-factory>
+</hibernate-configuration>

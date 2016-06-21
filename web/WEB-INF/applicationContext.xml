@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                    http://www.springframework.org/schema/security 
+                    http://www.springframework.org/schema/security/spring-security-3.2.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+    
+    
+    
+    <!--<http auto-config="true" use-expressions="true" access-denied-page="/acesso-negado.xhtml">-->
+    <http auto-config="true" use-expressions="true" access-decision-manager-ref="accessDecisionManager">
+        <custom-filter ref="sessionManagementFilter" before="SESSION_MANAGEMENT_FILTER" />
+        <intercept-url pattern="/admin/**" access="isAuthenticated()" />
+        <intercept-url pattern="/integra/**" access="isAuthenticated()" />
+        <intercept-url pattern="/teleDiagnostico/**" access="isAuthenticated()" />
+        <intercept-url pattern="/teleConsultoria/**" access="isAuthenticated()" />
+        <intercept-url pattern="/controleUco/**" access="isAuthenticated()" />
+        <intercept-url pattern="/javax**" access="isAnonymous()" />
+        <intercept-url pattern="/static**" access="isAnonymous()" />
+        <intercept-url pattern="/login.xhtml" access="isAnonymous()" />
+        <intercept-url pattern="/admin/componentes/DialogRecuperaSenha.xhtml" access="isAnonymous()" />
+        <form-login login-page="/login.xhtml" 
+                    authentication-failure-url="/login.xhtml?error=invalido"   />
+    </http>
+        <beans:bean id="customVoter" class="com.security.authentication.CustomVoter" />
+
+    <!-- Define AccessDesisionManager como UnanimousBased e coloca o Voter na lista -->
+    <beans:bean id="accessDecisionManager" class="org.springframework.security.access.vote.UnanimousBased">
+        <beans:constructor-arg>
+            <beans:list>
+                <beans:bean class="org.springframework.security.access.vote.AuthenticatedVoter" />
+                <beans:ref bean="customVoter" />
+            </beans:list>
+        </beans:constructor-arg>
+    </beans:bean>
+    
+    
+    <beans:bean id="customAuthenticationProvider" class="com.security.authentication.CustomAuthenticationProvider">       
+    </beans:bean>
+
+    <authentication-manager>
+        <authentication-provider ref="customAuthenticationProvider" />
+    </authentication-manager>
+    
+    <beans:bean id="sessionManagementFilter" class="org.springframework.security.web.session.SessionManagementFilter">
+        <beans:constructor-arg name="securityContextRepository" ref="httpSessionSecurityContextRepository" />
+        <beans:property name="invalidSessionStrategy" ref="jsfRedirectStrategy"  />
+    </beans:bean>
+
+    <beans:bean id="jsfRedirectStrategy" class="com.security.config.JsfRedirectStrategy">
+        <!--<beans:property name="invalidSessionUrl" value="/public/error/viewExpired.xhtml" />-->
+        <beans:property name="invalidSessionUrl" value="/login.xhtml" />
+    </beans:bean>
+
+    <beans:bean id="httpSessionSecurityContextRepository" class="org.springframework.security.web.context.HttpSessionSecurityContextRepository"/>
+
+</beans:beans>   
